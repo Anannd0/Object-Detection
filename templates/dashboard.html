@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Aether Vision{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/shiny-text.css') }}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/shiny-text.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-content">
+    <div class="welcome-section">
+        <h2>Welcome to Aether Vision</h2>
+        <p class="welcome-subtitle" data-shiny>AI based object detection!</p>
+    </div>
+
+    <div class="description-section">
+        <div class="description-card">
+            <h3>Object Detection</h3>
+            <p data-shiny>Detect and identify various types of objects including vehicles, people, animals, and more. Our advanced YOLO-based system provides accurate real-time object detection with high precision and confidence scores.</p>
+        </div>
+
+        <div class="description-card">
+            <h3>Multi-Object Detection</h3>
+            <p data-shiny>Our system can detect a wide range of objects including vehicles, people, animals, signs, and various other objects. Perfect for comprehensive object detection and analysis across different scenarios.</p>
+        </div>
+
+        <div class="description-card">
+            <h3>Real-Time Processing</h3>
+            <p data-shiny>Process images, videos, and live camera feeds in real-time. Get instant detection results with high accuracy and confidence scores for all detected objects.</p>
+        </div>
+
+        <div class="description-card">
+            <h3>Detection History</h3>
+            <p data-shiny>Keep track of all your detections with our comprehensive history system. Review past detections, analyze patterns, and export data for further analysis.</p>
+        </div>
+    </div>
+
+    <div class="features-section">
+        <h3>Key Features</h3>
+        <div class="features-grid">
+            <div class="feature-item">
+                <span data-shiny>Image Detection</span>
+            </div>
+            <div class="feature-item">
+                <span data-shiny>Video Processing</span>
+            </div>
+            <div class="feature-item">
+                <span data-shiny>Live Camera Feed</span>
+            </div>
+            <div class="feature-item">
+                <span data-shiny>Detection Analytics</span>
+            </div>
+            <div class="feature-item">
+                <span data-shiny>History Tracking</span>
+            </div>
+            <div class="feature-item">
+                <span data-shiny>Customizable Settings</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <a href="{{ url_for('detection') }}" class="main-button">
+            <span>Start Detection</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </a>
+    </div>
+</div>
+{% endblock %}

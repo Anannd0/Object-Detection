@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Subscription - Aether Vision{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/subscription.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="subscription-content">
+    <div class="subscription-header">
+        <h2>Choose Your Plan</h2>
+        <p>Select the perfect plan for your object detection needs</p>
+    </div>
+
+    <div class="plans-grid">
+        <div class="plan-card">
+            <div class="plan-header">
+                <h3>Free</h3>
+                <div class="plan-price">
+                    <span class="price">FREE</span>
+                    <span class="period">/month</span>
+                </div>
+            </div>
+            <div class="plan-features">
+                <div class="feature-item">✓ 10 detections total</div>
+                <div class="feature-item">✓ Image detection</div>
+                <div class="feature-item">✓ Basic video processing</div>
+                <div class="feature-item">✓ 7-day history</div>
+                <div class="feature-item">✗ Live camera feed</div>
+                <div class="feature-item">✗ Priority support</div>
+            </div>
+            <button class="plan-button current">Current Plan</button>
+        </div>
+
+        <div class="plan-card featured">
+            <div class="plan-badge">Popular</div>
+            <div class="plan-header">
+                <h3>Pro</h3>
+                <div class="plan-price">
+                    <span class="price">INR 99</span>
+                    <span class="period">/month</span>
+                </div>
+            </div>
+            <div class="plan-features">
+                <div class="feature-item">✓ Unlimited detections</div>
+                <div class="feature-item">✓ Image detection</div>
+                <div class="feature-item">✓ Advanced video processing</div>
+                <div class="feature-item">✓ 30-day history</div>
+                <div class="feature-item">✓ Live camera feed</div>
+                <div class="feature-item">✓ Email support</div>
+            </div>
+            <button class="plan-button">Upgrade to Pro</button>
+        </div>
+
+        <div class="plan-card">
+            <div class="plan-header">
+                <h3>Enterprise</h3>
+                <div class="plan-price">
+                    <span class="price">INR 399</span>
+                    <span class="period">/month</span>
+                </div>
+            </div>
+            <div class="plan-features">
+                <div class="feature-item">✓ Unlimited detections</div>
+                <div class="feature-item">✓ Image detection</div>
+                <div class="feature-item">✓ Premium video processing</div>
+                <div class="feature-item">✓ Unlimited history</div>
+                <div class="feature-item">✓ Multiple camera feeds</div>
+                <div class="feature-item">✓ Priority 24/7 support</div>
+                <div class="feature-item">✓ API access (REST API for integrations)</div>
+                <div class="feature-item">✓ Custom integrations</div>
+            </div>
+            <button class="plan-button">Contact Sales</button>
+        </div>
+    </div>
+
+    <div class="subscription-info">
+        <h3>All Plans Include</h3>
+        <div class="info-grid">
+            <div class="info-item">
+                <span>Secure & Private</span>
+            </div>
+            <div class="info-item">
+                <span>Detection Analytics</span>
+            </div>
+            <div class="info-item">
+                <span>Fast Processing</span>
+            </div>
+            <div class="info-item">
+                <span>Regular Updates</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

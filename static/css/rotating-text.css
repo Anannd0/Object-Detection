@@ -1,0 +1,31 @@
+
+
+
+.rotating-text {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    vertical-align: bottom;
+    perspective: 1000px;
+    height: 1.5em;
+    min-width: 200px;
+}
+
+.rotating-text-inner {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+}
+
+.rotating-text-word {
+    display: flex;
+    align-items: center;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    white-space: nowrap;
+    font-weight: 600;
+}
+

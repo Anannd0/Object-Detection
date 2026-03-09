@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}Account Settings - Aether Vision{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/account.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="account-content">
+    <div class="account-section">
+        <h2>Profile</h2>
+        <div class="settings-card">
+            <div class="setting-item">
+                <label>Username</label>
+                <input type="text" id="username" value="{{ session.get('user_id', 'admin') }}" readonly>
+            </div>
+            <div class="setting-item">
+                <label>Account Type</label>
+                <input type="text" value="Standard" readonly>
+            </div>
+        </div>
+    </div>
+
+    <div class="account-section">
+        <h2>Detection Settings</h2>
+        <div class="settings-card">
+            <div class="setting-item">
+                <label>Confidence Threshold</label>
+                <div class="slider-container">
+                    <input type="range" id="confidence-threshold" min="0" max="100" value="50" class="slider">
+                    <span id="confidence-value">50%</span>
+                </div>
+                <p class="setting-hint">Minimum confidence level for detections</p>
+            </div>
+            <div class="setting-item">
+                <label>Detection Speed</label>
+                <select id="detection-speed" class="setting-select">
+                    <option value="fast">Fast</option>
+                    <option value="balanced" selected>Balanced</option>
+                    <option value="accurate">Accurate</option>
+                </select>
+                <p class="setting-hint">Balance between speed and accuracy</p>
+            </div>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" id="show-labels" checked>
+                    Show Detection Labels
+                </label>
+                <p class="setting-hint">Display object labels on detections</p>
+            </div>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" id="show-confidence" checked>
+                    Show Confidence Scores
+                </label>
+                <p class="setting-hint">Display confidence percentages</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="account-section">
+        <h2>Display Settings</h2>
+        <div class="settings-card">
+            <div class="setting-item">
+                <label>Theme</label>
+                <select id="theme" class="setting-select">
+                    <option value="light" selected>Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="auto">Auto</option>
+                </select>
+            </div>
+            <div class="setting-item">
+                <label>Video Quality</label>
+                <select id="video-quality" class="setting-select">
+                    <option value="low">Low (Fast)</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High (Slow)</option>
+                </select>
+            </div>
+            <div class="setting-item">
+                <label>Live View FPS</label>
+                <div class="slider-container">
+                    <input type="range" id="fps" min="1" max="30" value="10" class="slider">
+                    <span id="fps-value">10 fps</span>
+                </div>
+                <p class="setting-hint">Frames per second for live detection</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="account-section">
+        <h2>Notifications</h2>
+        <div class="settings-card">
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" id="email-notifications">
+                    Email Notifications
+                </label>
+                <p class="setting-hint">Receive email alerts for detections</p>
+            </div>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" id="sound-alerts" checked>
+                    Sound Alerts
+                </label>
+                <p class="setting-hint">Play sound when objects are detected</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="account-section">
+        <h2>Data Management</h2>
+        <div class="settings-card">
+            <div class="setting-item">
+                <label>Clear All Data</label>
+                <p class="setting-hint" style="color: rgba(255, 107, 107, 0.8); margin-bottom: 15px;">Warning: This will permanently delete all your detection history, captured images, and reset your detection count. This action cannot be undone.</p>
+                <button class="clear-data-button" onclick="clearAllData()">Clear All Data</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="account-actions">
+        <button class="save-button" onclick="saveSettings()">Save Settings</button>
+        <button class="reset-button" onclick="resetSettings()">Reset to Default</button>
+    </div>
+
+    <div id="save-message" class="save-message hidden"></div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/account.js') }}"></script>
+{% endblock %}

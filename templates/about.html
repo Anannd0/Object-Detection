@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - Aether Vision{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/shiny-text.css') }}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/shiny-text.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="about-content">
+    <div class="about-hero">
+        <h2>About Aether Vision</h2>
+        <p class="hero-subtitle" data-shiny>AI based object detection!</p>
+    </div>
+
+    <div class="about-section">
+            <div class="about-card">
+                <h3>Our Mission</h3>
+                <p data-shiny>Aether Vision is an intelligent AI-based object detection system. We use advanced AI technology (YOLO - You Only Look Once) to help you detect and identify various objects in images and videos with high accuracy in real-time.</p>
+            </div>
+
+            <div class="about-card">
+                <h3>What We Do</h3>
+                <p data-shiny>Our platform provides comprehensive object detection features:</p>
+                <ul>
+                    <li data-shiny>Detect various types of objects including vehicles, people, animals, and more</li>
+                    <li data-shiny>Identify and classify objects with high accuracy</li>
+                    <li data-shiny>Detect multiple object categories including vehicles, people, animals, signs, and various objects</li>
+                    <li data-shiny>Analyze patterns and relationships between detected objects</li>
+                    <li data-shiny>Process images, videos, and live camera feeds in real-time</li>
+                    <li data-shiny>Maintain detection history for review and analysis</li>
+                </ul>
+            </div>
+
+            <div class="about-card">
+                <h3>How It Works</h3>
+                <p data-shiny>Our AI system uses deep learning technology for object detection:</p>
+                <ul>
+                    <li data-shiny>Upload images or videos for instant analysis</li>
+                    <li data-shiny>AI detects and identifies objects with high accuracy</li>
+                    <li data-shiny>Receive real-time results with confidence scores</li>
+                    <li data-shiny>Monitor live camera feeds with real-time object detection</li>
+                    <li data-shiny>Access detection history for review</li>
+                </ul>
+            </div>
+
+            <div class="about-card">
+                <h3>Why Choose Aether Vision?</h3>
+                <div class="features-list">
+                    <div class="feature-box">
+                        <div>
+                            <strong>Object Detection</strong>
+                            <p data-shiny>Detect various objects including vehicles, people, animals, and more with high accuracy.</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div>
+                            <strong>Multi-Object Detection</strong>
+                            <p data-shiny>Detect vehicles, people, animals, signs, and various objects.</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div>
+                            <strong>Fast Processing</strong>
+                            <p data-shiny>Get results quickly with efficient processing.</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div>
+                            <strong>History Tracking</strong>
+                            <p data-shiny>Keep track of all detections for review and analysis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <h3>Contact Us</h3>
+                <p data-shiny>For questions or support, please contact us:</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>Email:</span>
+                        <span>nuv@nuv.ac.in</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>Phone:</span>
+                        <span>90XXX 89XXXX</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>Location:</span>
+                        <span>Vadodra ,Gujarat ,India</span>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}

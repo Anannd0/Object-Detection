@@ -1,0 +1,337 @@
+.account-content {
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    background: transparent;
+    backdrop-filter: none;
+    position: relative;
+    z-index: 1;
+}
+
+.account-section {
+    margin-bottom: 40px;
+}
+
+.account-section h2 {
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.settings-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(2px);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.setting-item {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(42, 42, 62, 0.5);
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.setting-item label {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+
+.setting-item input[type="text"],
+.setting-item input[type="range"],
+.setting-item select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.3s;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    color: #ffffff;
+}
+
+.setting-item input[type="text"]:focus,
+.setting-item select:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.setting-item input[type="text"][readonly] {
+    background: rgba(255, 255, 255, 0.05);
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.setting-item input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #88E0F4;
+}
+
+.setting-item label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.setting-select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #2a2a3e;
+    border-radius: 8px;
+    font-size: 1em;
+    background: #16213e;
+    color: #e0e0e0;
+    cursor: pointer;
+}
+
+.setting-select option {
+    background: #16213e;
+    color: #e0e0e0;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.slider {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: #2a2a3e;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4a9eff;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid #1a1a2e;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    background: #5ba3ff;
+    transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4a9eff;
+    cursor: pointer;
+    border: 2px solid #1a1a2e;
+    transition: all 0.3s;
+}
+
+.slider::-moz-range-thumb:hover {
+    background: #5ba3ff;
+    transform: scale(1.1);
+}
+
+#confidence-value,
+#fps-value {
+    min-width: 50px;
+    text-align: right;
+    color: #88E0F4;
+    font-weight: 600;
+}
+
+.setting-hint {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85em;
+    margin-top: 8px;
+    margin-left: 0;
+}
+
+.account-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.save-button,
+.reset-button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInScale 0.5s ease-out;
+}
+
+.save-button {
+    animation-delay: 0.1s;
+}
+
+.reset-button {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.save-button::before,
+.reset-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.save-button:hover::before,
+.reset-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.save-button {
+    background: rgba(255, 255, 255, 0.9);
+    color: #1A1625;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.save-button:hover {
+    background: #ffffff;
+    color: #1A1625;
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.save-button:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+.reset-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.reset-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.reset-button:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+.save-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    animation: slideDown 0.3s ease-out;
+}
+
+.save-message.success {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+
+.save-message.error {
+    background: #dc3545;
+    color: #fff;
+    border: 1px solid #ff4757;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.clear-data-button {
+    background: rgba(255, 107, 107, 0.2);
+    color: #ff6b6b;
+    border: 2px solid rgba(255, 107, 107, 0.5);
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.clear-data-button:hover {
+    background: rgba(255, 107, 107, 0.3);
+    color: #ff6b6b;
+    border-color: rgba(255, 107, 107, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.clear-data-button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .account-content {
+        padding: 20px;
+    }
+    
+    .account-actions {
+        flex-direction: column;
+    }
+    
+    .save-button,
+    .reset-button {
+        width: 100%;
+    }
+}

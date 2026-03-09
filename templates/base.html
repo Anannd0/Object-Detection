@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Aether Vision{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/themes.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">Aether Vision</h2>
+        </div>
+        <ul class="sidebar-nav">
+            <li class="sidebar-nav-item">
+                <a href="{{ url_for('dashboard') }}" class="sidebar-nav-link {% if request.endpoint == 'dashboard' %}active{% endif %}">
+                    Dashboard
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="{{ url_for('detection') }}" class="sidebar-nav-link {% if request.endpoint == 'detection' %}active{% endif %}">
+                    Detection
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="{{ url_for('account') }}" class="sidebar-nav-link {% if request.endpoint == 'account' %}active{% endif %}">
+                    Account
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="{{ url_for('history') }}" class="sidebar-nav-link {% if request.endpoint == 'history' %}active{% endif %}">
+                    History
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="{{ url_for('subscription') }}" class="sidebar-nav-link {% if request.endpoint == 'subscription' %}active{% endif %}">
+                    Subscription
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="{{ url_for('about') }}" class="sidebar-nav-link {% if request.endpoint == 'about' %}active{% endif %}">
+                    About Us
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="{{ url_for('logout') }}" class="sidebar-nav-link">
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="main-content-wrapper">
+        
+        <div class="top-header">
+            <div class="top-header-left">
+                <h3 class="logo-text">Aether Vision</h3>
+            </div>
+            <div class="top-header-right">
+                <a href="{{ url_for('dashboard') }}" class="top-header-link">Home</a>
+                <a href="{{ url_for('about') }}" class="top-header-link">About</a>
+            </div>
+        </div>
+
+        
+        <div class="content-area">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    
+    <button class="mobile-menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+    </button>
+
+    
+    <script src="{{ url_for('static', filename='js/dot-grid-background.js') }}"></script>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+    
+    <script>
+        (function() {
+            const settings = JSON.parse(localStorage.getItem('aetherVisionSettings') || '{}');
+            const theme = settings.theme || 'dark';
+            const body = document.body;
+            const html = document.documentElement;
+            
+            body.classList.remove('theme-light', 'theme-dark');
+            html.classList.remove('theme-light', 'theme-dark');
+            
+            if (theme === 'light') {
+                body.classList.add('theme-light');
+                html.classList.add('theme-light');
+            } else if (theme === 'dark') {
+                body.classList.add('theme-dark');
+                html.classList.add('theme-dark');
+            } else if (theme === 'auto') {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (prefersDark) {
+                    body.classList.add('theme-dark');
+                    html.classList.add('theme-dark');
+                } else {
+                    body.classList.add('theme-light');
+                    html.classList.add('theme-light');
+                }
+            }
+        })();
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
+

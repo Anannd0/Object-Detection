@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Aether Vision</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cubes-background.css') }}">
+</head>
+<body>
+    <div class="cubes-container"></div>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>Join Aether Vision</h1>
+                <p>Create an account to get started</p>
+            </div>
+
+            <form id="create-account-form" class="login-form">
+                <div class="form-group">
+                    <label for="new-username">Username</label>
+                    <input type="text" id="new-username" name="username" required autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required autocomplete="email">
+                </div>
+
+                <div class="form-group password-group">
+                    <label for="new-password">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="new-password" name="password" required autocomplete="new-password">
+                        <button type="button" class="toggle-password" data-target="new-password" aria-pressed="false">Show</button>
+                    </div>
+                </div>
+
+                <div class="form-group password-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="password-field">
+                        <input type="password" id="confirm-password" name="confirm_password" required autocomplete="new-password">
+                        <button type="button" class="toggle-password" data-target="confirm-password" aria-pressed="false">Show</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="login-button">
+                    <span>Create Account</span>
+                </button>
+
+                <div id="create-account-message" class="error-message hidden"></div>
+            </form>
+
+            <div class="login-footer">
+                <p>Already have an account? <a href="{{ url_for('login') }}" class="link-button">Sign in</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/cubes-background.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/password-toggle.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/create-account.js') }}"></script>
+</body>
+</html>
+

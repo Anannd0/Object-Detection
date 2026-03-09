@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}Detection - Aether Vision{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="tabs">
+        <button class="tab-button active" onclick="switchTab('image')">Image</button>
+        <button class="tab-button" onclick="switchTab('video')">Video</button>
+        <button class="tab-button" onclick="switchTab('realtime')">Live View</button>
+    </div>
+
+    
+    <div id="image-tab" class="tab-content active">
+        <div class="upload-section">
+            <div class="upload-area" id="image-upload-area">
+                <input type="file" id="image-input" accept="image/*" hidden>
+                <div class="upload-content">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p>Upload Image</p>
+                    <p class="upload-hint">or drag and drop</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="image-preview-section" class="preview-section hidden">
+            <div class="preview-container">
+                <h3>Original</h3>
+                <img id="original-image" alt="Original">
+            </div>
+            <div class="preview-container">
+                <h3>Detected</h3>
+                <img id="result-image" alt="Result">
+            </div>
+        </div>
+
+        <div id="image-detections" class="detections hidden">
+            <h3>Detection Results</h3>
+            <div id="detections-list"></div>
+        </div>
+
+        <div id="image-loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Processing...</p>
+        </div>
+    </div>
+
+    
+    <div id="video-tab" class="tab-content">
+        <div class="upload-section">
+            <div class="upload-area" id="video-upload-area">
+                <input type="file" id="video-input" accept="video/*" hidden>
+                <div class="upload-content">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                    </svg>
+                    <p>Upload Video</p>
+                    <p class="upload-hint">or drag and drop</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="video-preview-section" class="preview-section hidden">
+            <div class="preview-container full-width">
+                <h3>Processed Video</h3>
+                <video id="result-video" controls preload="metadata">
+                    <source id="video-source" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <div id="video-detections" class="detections hidden">
+            <h3>Summary</h3>
+            <div id="video-detections-list"></div>
+        </div>
+
+        <div id="video-loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Processing video...</p>
+            <div class="progress-bar">
+                <div id="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="realtime-tab" class="tab-content">
+        <div class="realtime-section">
+            <div class="realtime-controls">
+                <button id="start-webcam" class="control-button start-button">
+                    <span>Start Camera</span>
+                </button>
+                <button id="capture-image" class="control-button capture-button hidden">
+                    <span>Capture Image</span>
+                </button>
+                <button id="stop-webcam" class="control-button stop-button hidden">
+                    <span>Stop Camera</span>
+                </button>
+            </div>
+            
+            <div id="webcam-container" class="webcam-container hidden">
+                <div class="preview-container full-width">
+                    <h3>Live Detection</h3>
+                    <video id="webcam-video" autoplay playsinline style="display: none;"></video>
+                    <canvas id="webcam-canvas"></canvas>
+                </div>
+                
+                <div id="realtime-detections" class="detections">
+                    <h3>Detected Objects</h3>
+                    <div id="realtime-detections-list"></div>
+                </div>
+            </div>
+            
+            <div id="webcam-error" class="error-message hidden"></div>
+        </div>
+    </div>
+
+    <div id="error-message" class="error-message hidden"></div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
